@@ -1,5 +1,4 @@
-E -> TX
-X -> +TX | ε
-T -> FY
-Y -> *FY | ε
-F -> (E) | id
+S → ACB / CbB / Ba
+A → da / BC
+B → g / ε
+C → h / ε

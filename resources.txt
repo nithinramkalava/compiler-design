@@ -21,3 +21,17 @@ X -> +TX | ε
 T -> FY
 Y -> *FY | ε
 F -> (E) | id
+
+
+S → aBDh
+B → cC
+C → bC / ε
+D → EF
+E → g / ε
+F → f / ε
+
+
+S → ACB / CbB / Ba
+A → da / BC
+B → g / ε
+C → h / ε
