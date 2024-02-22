@@ -1,0 +1,11 @@
+E:[TX]
+X:[+TX, ε]
+T:[FY]
+Y:[*FY, ε]
+F:[(E), id]
+
+first(E): [(, id]
+first(X): [ε, +]
+first(T): [(, id]
+first(Y): [ε, *]
+first(F): [(, id]

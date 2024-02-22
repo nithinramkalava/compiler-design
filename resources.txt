@@ -1,0 +1,23 @@
+\u03B5
+
+S  -> AC
+C -> x | ε
+A -> aBCd | BQ | ε
+B -> bB | d
+Q -> q
+
+
+S  -> L=R | R 
+L -> *R /  id
+R -> L
+
+
+S -> (L) | a
+L -> SM
+M -> SM | ε
+
+E -> TX
+X -> +TX | ε
+T -> FY
+Y -> *FY | ε
+F -> (E) | id
