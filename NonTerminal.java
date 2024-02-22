@@ -7,12 +7,14 @@ public class NonTerminal{
     List<String> productions;
     Set<String> first;
     Set<String> follow;
+    boolean followCalculated;
 
 
     public NonTerminal() {
         this.productions = new ArrayList<>();
         this.first = new HashSet<>();
         this.follow = new HashSet<>();
+        this.followCalculated = false;
     }
 
     public void print(BufferedWriter writer) {

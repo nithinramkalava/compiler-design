@@ -11,6 +11,7 @@ public class FirstAndFollow {
     public FirstAndFollow(Grammar grammar, BufferedWriter writer) {
         this.nonTerminals = grammar.nonTerminals;
         this.writer = writer;
+        nonTerminals.get(0).follow.add("$");
     }
 
     public void printFirst() throws IOException{
@@ -73,17 +74,46 @@ public class FirstAndFollow {
     }
 
     public Set<String> follow(NonTerminal nonTerminal){
+        if (nonTerminal.followCalculated) return nonTerminal.follow;
+
         for( NonTerminal otherNonTerminal: nonTerminals) {
             for (String prod: otherNonTerminal.productions){
                 if(prod.contains(nonTerminal.nonTerminal.toString())){
                     int index = prod.indexOf(nonTerminal.nonTerminal.toString());
                     if (index == prod.length() -  1) {
                         nonTerminal.follow.addAll(follow(otherNonTerminal));
+                        nonTerminal.followCalculated = true;
                     } else {
-                        
+                        boolean epsilon = true;
+                        index ++;
+                        while (epsilon && index < prod.length()) {
+                            NonTerminal temp = new NonTerminal();
+                            temp.productions.add(Character.toString(prod.charAt(index)));
+                            Set<String> otherNonTerminalFirst = first(temp);
+                            if (otherNonTerminalFirst.contains("ε")) {
+                                otherNonTerminalFirst.remove("ε");
+                            } else epsilon = false;
+                            nonTerminal.follow.addAll(otherNonTerminalFirst);
+                            index ++;
+                        }
+                        if (epsilon) {
+                            nonTerminal.follow.addAll(follow(otherNonTerminal));
+                        }
+                        nonTerminal.followCalculated = true;
                     }
                 }
             }
+        }
+        nonTerminal.followCalculated = true;
+        return nonTerminal.follow;
+    }
+
+    public void printFollow() throws IOException{
+        writer.newLine();
+        for(NonTerminal nonTerminal: nonTerminals){
+            nonTerminal.follow.addAll(follow(nonTerminal));
+            writer.write("follow("+nonTerminal.nonTerminal+"): " + nonTerminal.follow.toString());
+            writer.newLine();
         }
     }
 }

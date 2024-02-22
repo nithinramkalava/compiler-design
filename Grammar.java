@@ -55,7 +55,7 @@ public class Grammar {
         grammer.printGrammer();
         FirstAndFollow firstAndFollow = new FirstAndFollow(grammer, writer);
         firstAndFollow.printFirst();
-
+        firstAndFollow.printFollow();
         writer.close();
     }
 }
