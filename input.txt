@@ -1,4 +1,3 @@
-S → ACB / CbB / Ba
-A → da / BC
-B → g / ε
-C → h / ε
+Z → S
+S → AA
+A → aA | b

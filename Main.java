@@ -12,12 +12,16 @@ public class Main {
         clearOutputFile();
         BufferedWriter writer = new BufferedWriter(new FileWriter("output.txt", true));
 
-        Grammar grammer = new Grammar("input.txt", writer);
-        grammer.printGrammer();
+        Grammar grammar = new Grammar("input.txt", writer);
+        grammar.printGrammar();
 
-        FirstAndFollow firstAndFollow = new FirstAndFollow(grammer, writer);
+        FirstAndFollow firstAndFollow = new FirstAndFollow(grammar, writer);
         firstAndFollow.printFirst();
         firstAndFollow.printFollow();
+
+        // CLR clr = new CLR(grammar);
+        // // clr.calculateStates();
+        // clr.printStates();
         
         writer.close();
     }

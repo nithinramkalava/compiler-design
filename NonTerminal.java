@@ -8,6 +8,7 @@ public class NonTerminal{
     Set<String> first;
     Set<String> follow;
     boolean followCalculated;
+    String firstCLR;
 
 
     public NonTerminal() {

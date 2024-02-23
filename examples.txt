@@ -35,3 +35,11 @@ S → ACB / CbB / Ba
 A → da / BC
 B → g / ε
 C → h / ε
+
+
+Z → S
+S → L=R
+S → R
+L → *R
+L → id
+R → L

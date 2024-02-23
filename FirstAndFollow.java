@@ -1,7 +1,5 @@
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.util.List;
-import java.util.Set;
+import java.io.*;
+import java.util.*;
 
 public class FirstAndFollow {
 

@@ -5,7 +5,6 @@ public class Grammar {
 
     List<NonTerminal> nonTerminals;
     NonTerminal nonTerminal;
-    List<String> prod;
     BufferedWriter writer;
     
     public Grammar(String fileName, BufferedWriter writer){
@@ -19,7 +18,6 @@ public class Grammar {
                 String[] splittedLine = line.split("->|→");
                 nonTerminal.nonTerminal = splittedLine[0].trim().toCharArray()[0];
                 String[] prodString = splittedLine[1].split("\\||/");
-                prod = new ArrayList<>();
 
                 for (int i = 0; i < prodString.length; i++){
                     String trimmmed = prodString[i].trim();
@@ -35,7 +33,7 @@ public class Grammar {
     }
 
 
-    public void printGrammer() throws IOException{
+    public void printGrammar() throws IOException{
         for(NonTerminal nonTerminal : nonTerminals){
             nonTerminal.print(writer);
         }
